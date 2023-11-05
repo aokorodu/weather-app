@@ -1,29 +1,21 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import WeatherDisplay from './components/weather-display';
+import { TCurrentWeather } from "./interfaces";
 
 const url: string = "http://api.weatherapi.com/v1/current.json?key=7b006266b8fa412baec213059230411&q=19128&aqi=no";
 
-type Condition = {
-  code: number,
-  icon: string,
-  text: string
-}
-
-type CurrentWeather = {
-  cloud: number,
-  condition: Condition,
-  temp_f: number,
-  wind_mph: number
-}
-
 function App() {
-  const [temp, setTemp] = useState(0);
   const [location, setLocation] = useState("");
-  const [currentCondition, setCurrentCondition] = useState<Condition>({
-    code: 0,
-    icon: "",
-    text: ""
+  const [currentWeather, setCurrentWeather] = useState<TCurrentWeather>({
+    cloud: 0,
+    condition: {
+      code: 0,
+      icon: "",
+      text: ""
+    },
+    temp_f: 0,
+    wind_mph: 0
   })
 
   const fetchData = async () => {
@@ -31,8 +23,7 @@ function App() {
     result.json().then((json) => {
       console.log('json:', json);
       setLocation(json.location.name);
-      setTemp(json.current.temp_f);
-      setCurrentCondition(json.current.condition);
+      setCurrentWeather(json.current);
     })
   }
 
@@ -43,8 +34,8 @@ function App() {
   return (
     <>
       <div>{location}--</div>
-      <div>{temp}</div>
-      <div>{currentCondition.text}</div>
+      <div>{currentWeather.temp_f}</div>
+      <div>{currentWeather.condition.text}</div>
       <WeatherDisplay />
     </>
   );
