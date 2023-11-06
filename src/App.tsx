@@ -34,9 +34,7 @@ function App() {
   return (
     <>
       <div>{location}--</div>
-      <div>{currentWeather.temp_f}</div>
-      <div>{currentWeather.condition.text}</div>
-      <WeatherDisplay />
+      <WeatherDisplay {...currentWeather} />
     </>
   );
 }
