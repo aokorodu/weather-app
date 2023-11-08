@@ -13,7 +13,7 @@ const WeatherDisplay = ({ cloud, condition, temp_f, feelslike_f, wind_mph, wind_
             <div className="windHolder">
                 <WindGraphic />
                 <div>cloud cover: <strong>{cloud}%</strong></div>
-                <div>wind: {wind_mph} <strong>{wind_dir}</strong></div>
+                <div>wind: <strong>{wind_mph}mph {wind_dir}</strong></div>
                 <div>wind degree: <strong>{wind_degree}&deg;</strong></div>
             </div>
         </div>
