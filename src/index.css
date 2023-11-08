@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&family=Roboto+Serif:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900&display=swap");
+
 * {
-  font-family: Roboto, Geneva, Tahoma, sans-serif;
+  font-family: "Roboto Mono", monospace;
   box-sizing: border-box;
   margin: 0;
   padding: 0;

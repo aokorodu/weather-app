@@ -1,11 +1,13 @@
-import './App.css';
+import styles from './App.module.scss';
 import React, { useState, useEffect } from 'react';
 import WeatherDisplay from './components/weather-display';
 import { TCurrentWeather } from "./interfaces";
-import { Button, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import { postcodeValidator } from 'postcode-validator';
 
 function App() {
+  let date = new Date();
+  console.log(date)
   let currentZip = 10001;
   const [validPostcode, setValidPostcode] = useState(true);
   const [zip, setZip] = useState(currentZip)
@@ -18,7 +20,11 @@ function App() {
       text: ""
     },
     temp_f: 0,
-    wind_mph: 0
+    feelslike_f: 0,
+    humidity: 0,
+    wind_mph: 0,
+    wind_dir: '',
+    wind_degree: 0
   },)
 
   const fetchData = async () => {
@@ -52,14 +58,12 @@ function App() {
 
   return (
     <>
-      <div>{location}--</div>
-      <form>
-        <TextField error={!validPostcode} helperText={!validPostcode ? "improper zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} />
-        {/* <Button variant="outlined" disabled={!validPostcode} onClick={() => { setZip(currentZip) }}>SUBMIT</Button> */}
-      </form>
+      <div className={styles.location}>{location}</div>
+      <div className={styles.date}>{`${date.getMonth() + 1}.${date.getDate()}.${date.getFullYear()}`}</div>
 
-      <div>{zip}</div>
+
       <WeatherDisplay {...currentWeather} />
+      <TextField error={!validPostcode} helperText={!validPostcode ? "improper zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} />
     </>
   );
 }
