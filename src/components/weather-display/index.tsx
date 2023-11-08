@@ -4,6 +4,7 @@ import styles from './WeatherDisplay.module.scss';
 import { WindGraphic } from "../graphics";
 
 const WeatherDisplay = ({ cloud, condition, temp_f, feelslike_f, wind_mph, wind_dir, wind_degree }: TCurrentWeather) => {
+    console.log('condition: ', condition)
     return (<>
         <div className={styles.dataHolder}>
             <div className="tempHolder"> <div className={styles.temp}>{Math.round(temp_f)}</div>
@@ -20,7 +21,7 @@ const WeatherDisplay = ({ cloud, condition, temp_f, feelslike_f, wind_mph, wind_
 
 
 
-        <div className={styles.conditions}>{condition.text.toUpperCase()}</div>
+        {/* <div className={styles.conditions}>{condition.text.toUpperCase()}</div> */}
 
     </>)
 }
