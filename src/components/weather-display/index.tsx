@@ -2,6 +2,7 @@ import React from "react";
 import { TCurrentWeather, TWeather, TForcastWeather, TForcastDay } from "../../interfaces";
 import styles from './WeatherDisplay.module.scss';
 import { WindGraphic } from "../graphics";
+import Wind from "../wind";
 
 const WeatherDisplay = ({ current, forecast }: TWeather) => {
     const f: TForcastWeather = forecast;
@@ -19,10 +20,7 @@ const WeatherDisplay = ({ current, forecast }: TWeather) => {
             </div>
 
             <div className={styles.windHolder}>
-                <WindGraphic />
-                <div>cloud cover: <strong>{current.cloud}%</strong></div>
-                <div>wind: <strong>{current.wind_mph}mph {current.wind_dir}</strong></div>
-                <div>wind degree: <strong>{current.wind_degree}&deg;</strong></div>
+                <Wind {...current} />
             </div>
         </div>
 
