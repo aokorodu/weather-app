@@ -28,8 +28,8 @@ function App() {
       cloud: 0,
       feelslike_f: 0,
     },
-    forcast: {
-      forcast: [
+    forecast: {
+      forecastday: [
         {
           astro: {
             sunrise: "",
@@ -84,7 +84,7 @@ function App() {
     <>
       <div className={styles.location}>{location}</div>
       <div className={styles.date}>{`${date.getMonth() + 1}.${date.getDate()}.${date.getFullYear()}`}</div>
-      <WeatherDisplay {...currentWeather.current} />
+      <WeatherDisplay {...currentWeather} />
       <div className={styles.zipInputHolder}><TextField error={!validPostcode} helperText={!validPostcode ? "improper zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} /></div>
 
     </>

@@ -38,10 +38,10 @@ export type TForcastDay = {
 };
 
 export type TForcastWeather = {
-  forcast: TForcastDay[];
+  forecastday: TForcastDay[];
 };
 
 export type TWeather = {
   current: TCurrentWeather;
-  forcast: TForcastWeather;
+  forecast: TForcastWeather;
 };
