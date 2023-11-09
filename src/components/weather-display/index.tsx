@@ -1,26 +1,18 @@
-import React from "react";
-import { TCurrentWeather } from "../../interfaces";
+import { TWeather, TForcastWeather } from "../../interfaces";
 import styles from './WeatherDisplay.module.scss';
-import { WindGraphic } from "../graphics";
+import Wind from "../wind";
+import Temp from "../temp";
 
-const WeatherDisplay = ({ cloud, condition, temp_f, feelslike_f, wind_mph, wind_dir, wind_degree }: TCurrentWeather) => {
+const WeatherDisplay = ({ current, forecast }: TWeather) => {
+    const f: TForcastWeather = forecast;
+    const max = Math.round(f.forecastday[0].day.maxtemp_f);
+    const min = Math.round(f.forecastday[0].day.mintemp_f);
+    console.log('f:', f.forecastday[0].day.maxtemp_f)
     return (<>
         <div className={styles.dataHolder}>
-            <div className="tempHolder"> <div className={styles.temp}>{Math.round(temp_f)}</div>
-                <div className={styles.feelsLike}>FEELS LIKE: <strong>{Math.round(feelslike_f)}&deg;</strong></div>
-            </div>
-
-            <div className="windHolder">
-                <WindGraphic />
-                <div>cloud cover: <strong>{cloud}%</strong></div>
-                <div>wind: <strong>{wind_mph}mph {wind_dir}</strong></div>
-                <div>wind degree: <strong>{wind_degree}&deg;</strong></div>
-            </div>
+            <Temp max={max} min={min} current={current} />
+            <Wind {...current} />
         </div>
-
-
-
-        <div className={styles.conditions}>{condition.text.toUpperCase()}</div>
 
     </>)
 }
