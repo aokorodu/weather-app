@@ -2,6 +2,7 @@
   font-family: "Roboto Serif", serif;
   font-size: 128px;
   font-weight: 700;
+  line-height: 115px;
 }
 
 .feelsLike {
@@ -13,10 +14,9 @@
   font-size: 36px;
 }
 
-.tempHolder {
-}
-
+.tempHolder,
 .windHolder {
+  margin-top: 1rem;
 }
 
 .dataHolder {

@@ -7,21 +7,17 @@ const WeatherDisplay = ({ cloud, condition, temp_f, feelslike_f, wind_mph, wind_
     console.log('condition: ', condition)
     return (<>
         <div className={styles.dataHolder}>
-            <div className="tempHolder"> <div className={styles.temp}>{Math.round(temp_f)}</div>
+            <div className={styles.tempHolder}> <div className={styles.temp}>{Math.round(temp_f)}</div>
                 <div className={styles.feelsLike}>FEELS LIKE: <strong>{Math.round(feelslike_f)}&deg;</strong></div>
             </div>
 
-            <div className="windHolder">
+            <div className={styles.windHolder}>
                 <WindGraphic />
                 <div>cloud cover: <strong>{cloud}%</strong></div>
                 <div>wind: <strong>{wind_mph}mph {wind_dir}</strong></div>
                 <div>wind degree: <strong>{wind_degree}&deg;</strong></div>
             </div>
         </div>
-
-
-
-        {/* <div className={styles.conditions}>{condition.text.toUpperCase()}</div> */}
 
     </>)
 }
