@@ -2,10 +2,12 @@ import { TCondition } from "../../interfaces";
 import styles from "./WeatherAnimation.module.scss";
 import SunnyAnimation from "./sunny";
 import CloudyAnimation from "./cloudy";
+import OvercastAnimation from "./overcast";
 
 const getAnimation = ((t: string) => {
-    console.log("text:", t, " index of cloudy", t.indexOf("cloudy"))
+    console.log("text:", t.toLowerCase())
     if (t === "Sunny") return <SunnyAnimation />;
+    if (t.toLowerCase() === "overcast") return <OvercastAnimation />;
     if (t.indexOf("cloudy") > -1) return <CloudyAnimation />
 })
 const WeatherAnimation = ({ code, icon, text }: TCondition) => {
