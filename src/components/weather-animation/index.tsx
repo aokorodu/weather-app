@@ -12,7 +12,7 @@ const WeatherAnimation = ({ code, icon, text }: TCondition) => {
     return (
         <>
             <div className={styles.container}>
-                <svg width="100%" height="100%" viewBox="0 0 500 500" fill="none" preserveAspectRatio="xMidYMin slice">
+                <svg width="100%" height="100%" viewBox="0 0 500 500" fill="none" preserveAspectRatio="xMidYMid slice">
                     {getAnimation(text)}
                 </svg>
             </div>
