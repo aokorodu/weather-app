@@ -82,9 +82,10 @@ function App() {
 
   return (
     <>
+      <div className={styles.background}></div>
+      <WeatherDisplay {...currentWeather} />
       <div className={styles.location}>{location}</div>
       <div className={styles.date}>{`${date.getMonth() + 1}.${date.getDate()}.${date.getFullYear()}`}</div>
-      <WeatherDisplay {...currentWeather} />
       <div className={styles.zipInputHolder}><TextField error={!validPostcode} helperText={!validPostcode ? "improper zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} /></div>
 
     </>
