@@ -11,7 +11,7 @@ const WeatherDisplay = ({ current, forecast }: TWeather) => {
     const min = Math.round(f.forecastday[0].day.mintemp_f);
     console.log('f:', f.forecastday[0].day.maxtemp_f)
     return (<>
-        <WeatherAnimation {...current.condition} />
+        {/* <WeatherAnimation {...current.condition} /> */}
         <div className={styles.dataHolder}>
             <Temp max={max} min={min} current={current} />
             <Wind {...current} />

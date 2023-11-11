@@ -25,3 +25,15 @@
   // background-color: #06b4d3;
   z-index: -100;
 }
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer {
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
+}

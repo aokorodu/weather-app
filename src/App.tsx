@@ -4,6 +4,7 @@ import WeatherDisplay from './components/weather-display';
 import { TCurrentWeather, TWeather } from "./interfaces";
 import { TextField } from '@mui/material';
 import { postcodeValidator } from 'postcode-validator';
+import WeatherAnimation from './components/weather-animation';
 
 function App() {
   const apiKey = '7b006266b8fa412baec213059230411'
@@ -83,10 +84,18 @@ function App() {
   return (
     <>
       <div className={styles.background}></div>
-      <WeatherDisplay {...currentWeather} />
-      <div className={styles.location}>{location}</div>
-      <div className={styles.date}>{`${date.getMonth() + 1}.${date.getDate()}.${date.getFullYear()}`}</div>
-      <div className={styles.zipInputHolder}><TextField error={!validPostcode} helperText={!validPostcode ? "improper zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} /></div>
+      <div className={styles.header}>
+        <div><div className={styles.location}>{location}</div>
+          <div className={styles.date}>{`${date.getMonth() + 1}.${date.getDate()}.${date.getFullYear()}`}</div>
+        </div>
+        <div className={styles.zipInputHolder}><TextField error={!validPostcode} helperText={!validPostcode ? "improper zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} /></div>
+
+      </div>
+      <WeatherAnimation {...currentWeather.current.condition} />
+      <div className={styles.footer}>
+        <WeatherDisplay {...currentWeather} />
+      </div>
+
 
     </>
   );
