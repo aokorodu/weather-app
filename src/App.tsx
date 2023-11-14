@@ -1,9 +1,11 @@
 import styles from './App.module.scss';
 import React, { useState, useEffect } from 'react';
 import WeatherDisplay from './components/weather-display';
-import { TCurrentWeather, TWeather } from "./interfaces";
+import { TLocation, TWeather } from "./interfaces";
 import { TextField } from '@mui/material';
 import { postcodeValidator } from 'postcode-validator';
+import WeatherAnimation from './components/weather-animation';
+import Sky from './components/sky';
 
 function App() {
   const apiKey = '7b006266b8fa412baec213059230411'
@@ -12,7 +14,16 @@ function App() {
   let currentZip = 10001;
   const [validPostcode, setValidPostcode] = useState(true);
   const [zip, setZip] = useState(currentZip)
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState<TLocation>({
+    country: "",
+    lat: 0,
+    localtime: "",
+    localtime_epoch: 0,
+    lon: 0,
+    name: "",
+    region: "",
+    tz_id: "",
+  });
   const [currentWeather, setCurrentWeather] = useState<TWeather>({
     current: {
       temp_f: 0,
@@ -33,7 +44,7 @@ function App() {
         {
           astro: {
             sunrise: "",
-            susnset: "",
+            sunset: "",
             is_moon_up: 0,
             is_sun_up: 0,
             moon_phase: "",
@@ -59,7 +70,7 @@ function App() {
       const errorCode = json.error?.code;
       console.log('errorCode:', errorCode)
       if (errorCode !== undefined) return;
-      setLocation(json.location.name);
+      setLocation(json.location);
       setCurrentWeather(json);
     })
   }
@@ -82,10 +93,22 @@ function App() {
 
   return (
     <>
-      <div className={styles.location}>{location}</div>
-      <div className={styles.date}>{`${date.getMonth() + 1}.${date.getDate()}.${date.getFullYear()}`}</div>
-      <WeatherDisplay {...currentWeather} />
-      <div className={styles.zipInputHolder}><TextField error={!validPostcode} helperText={!validPostcode ? "improper zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} /></div>
+      <div className={styles.background}>
+        <Sky sunrise={currentWeather.forecast.forecastday[0].astro.sunrise} sunset={currentWeather.forecast.forecastday[0].astro.sunset} locationTime={location.localtime} />
+      </div>
+      <div className={styles.header}>
+        <div>
+          <div className={styles.location}>{location.name}</div>
+          <div className={styles.date}>{`${date.getMonth() + 1}.${date.getDate()}.${date.getFullYear()}`}</div>
+        </div>
+        <div className={styles.zipInputHolder}><TextField error={!validPostcode} helperText={!validPostcode ? "improper zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} /></div>
+
+      </div>
+      <WeatherAnimation {...currentWeather.current.condition} />
+      <div className={styles.footer}>
+        <WeatherDisplay {...currentWeather} />
+      </div>
+
 
     </>
   );
