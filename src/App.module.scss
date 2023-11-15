@@ -1,20 +1,22 @@
 .location {
-  font-size: 50px;
-  font-weight: bold;
+  font-family: Monoton, sans-serif;
+  font-size: 6vw;
   line-height: 50px;
 }
 
 .date {
   font-size: 16px;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 .zipInputHolder {
-  padding: 1rem;
+  padding: 0.5rem;
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  border-radius: 5px;
+  background-blend-mode: overlay;
 }
 
 .background {
@@ -28,11 +30,18 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  padding: 2rem;
+  height: 8rem;
 }
 
 .footer {
   position: absolute;
   width: 100vw;
   bottom: 0;
+  padding: 2rem;
+}
+
+.mutextfield {
+  color: var(--font_color) !important;
 }

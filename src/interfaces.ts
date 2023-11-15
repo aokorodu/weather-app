@@ -62,3 +62,5 @@ export type TLocation = {
   region: string;
   tz_id: string;
 };
+
+export type TimeOfDay = "sunrise" | "day" | "sunset" | "night";

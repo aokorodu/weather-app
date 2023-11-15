@@ -1,8 +1,12 @@
-export const getTimeDifference = (
+import { TimeOfDay } from "../interfaces";
+
+export const getTimeOfDay = (
   currentTimeString: string,
   sunriseTimeString: string,
   sunsetTimeString: string
-) => {
+): TimeOfDay => {
+  //return "sunset";
+
   const currentTime = new Date(currentTimeString);
   const sunriseTime = new Date(currentTimeString);
   const sunsetTime = new Date(currentTimeString);
