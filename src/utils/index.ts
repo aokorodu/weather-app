@@ -5,7 +5,7 @@ export const getTimeDifference = (
   sunriseTimeString: string,
   sunsetTimeString: string
 ): TimeOfDay => {
-  return "sunrise";
+  // return "night";
 
   const currentTime = new Date(currentTimeString);
   const sunriseTime = new Date(currentTimeString);
