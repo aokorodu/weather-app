@@ -1,0 +1,33 @@
+// @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&family=Roboto+Serif:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Roboto+Mono:wght@100;200;300;400;500;600;700&family=Roboto+Serif:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900&display=swap");
+:root {
+  --font_color: #000000;
+}
+
+[data-theme="day"] {
+  --font_color: #19384f;
+}
+
+[data-theme="night"] {
+  --font_color: #297efc;
+}
+
+[data-theme="sunrise"] {
+  --font_color: #dcffe8;
+}
+
+[data-theme="sunset"] {
+  --font_color: #ffc2c2;
+}
+
+* {
+  font-family: "Roboto Mono", monospace;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--font_color);
+}
+
+input {
+  color: var(--font_color);
+}

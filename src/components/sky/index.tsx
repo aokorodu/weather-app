@@ -1,9 +1,10 @@
 import { SkyProps } from "../../interfaces";
 import { getTimeDifference } from "../../utils";
+import { TimeOfDay } from "../../interfaces";
 
 const Sky = ({ sunrise, sunset, locationTime }: SkyProps) => {
 
-    const str = getTimeDifference(locationTime, sunrise, sunset);
+    const str: TimeOfDay = getTimeDifference(locationTime, sunrise, sunset);
     console.log('time of day: ', str)
     const getFill = (): string => {
 

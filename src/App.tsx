@@ -6,6 +6,8 @@ import { TextField } from '@mui/material';
 import { postcodeValidator } from 'postcode-validator';
 import WeatherAnimation from './components/weather-animation';
 import Sky from './components/sky';
+import { getTimeDifference } from './utils';
+import { TimeOfDay } from './interfaces';
 
 function App() {
   const apiKey = '7b006266b8fa412baec213059230411'
@@ -72,12 +74,14 @@ function App() {
       if (errorCode !== undefined) return;
       setLocation(json.location);
       setCurrentWeather(json);
+      setTheme();
     })
   }
 
   useEffect(() => {
     console.log('useeffect')
     if (validPostcode) fetchData();
+
   }, [zip])
 
   const getAPIURLString = () => {
@@ -91,6 +95,25 @@ function App() {
     setValidPostcode(val);
   }
 
+  // put this in the fetch call after the setlocation and setcurrentweather
+  const setTheme = () => {
+    const themeString: TimeOfDay = getTimeDifference(location.localtime, currentWeather.forecast.forecastday[0].astro.sunrise, currentWeather.forecast.forecastday[0].astro.sunset);
+    console.log('themSring: ', themeString)
+    setMode(themeString)
+  }
+
+  const setMode = (mode: TimeOfDay) => {
+    document.querySelector("body")?.setAttribute("data-theme", mode)
+  }
+
+  // const setDarkMode = () => {
+  //   document.querySelector("body")?.setAttribute("data-theme", 'dark')
+  // }
+
+  // const setLightMode = () => {
+  //   document.querySelector("body")?.setAttribute("data-theme", 'light')
+  // }
+
   return (
     <>
       <div className={styles.background}>
@@ -101,7 +124,8 @@ function App() {
           <div className={styles.location}>{location.name}</div>
           <div className={styles.date}>{`${date.getMonth() + 1}.${date.getDate()}.${date.getFullYear()}`}</div>
         </div>
-        <div className={styles.zipInputHolder}><TextField error={!validPostcode} helperText={!validPostcode ? "improper zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} /></div>
+        <div className={styles.zipInputHolder}>
+          <TextField color="secondary" error={!validPostcode} helperText={!validPostcode ? "improper zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} /></div>
 
       </div>
       <WeatherAnimation {...currentWeather.current.condition} />
