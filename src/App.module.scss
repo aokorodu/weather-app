@@ -1,3 +1,5 @@
+@use "./scss/abstracts/colors" as *;
+
 .location {
   font-family: Monoton, sans-serif;
   font-size: 4rem;
@@ -80,4 +82,20 @@
   position: relative;
   width: 100%;
   height: calc(100% - 95px);
+}
+
+.day {
+  color: $day-font-color;
+}
+
+.night {
+  color: $night-font-color;
+}
+
+.sunrise {
+  color: $sunrise-font-color;
+}
+
+.sunset {
+  color: $sunset-font-color;
 }
