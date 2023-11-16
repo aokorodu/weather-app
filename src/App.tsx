@@ -1,5 +1,6 @@
 import styles from './App.module.scss';
-import React, { useState, useEffect } from 'react';
+import { makeStyles } from '@mui/material/styles';
+import { useState, useEffect } from 'react';
 import WeatherDisplay from './components/weather-display';
 import { TLocation, TWeather } from "./interfaces";
 import { TextField } from '@mui/material';
@@ -101,41 +102,39 @@ function App() {
     const themeString: TimeOfDay = getTimeOfDay(location.localtime, currentWeather.forecast.forecastday[0].astro.sunrise, currentWeather.forecast.forecastday[0].astro.sunset);
     console.log('themSring: ', themeString);
     setTOD(themeString);
-    //setMode(themeString)
   }
 
-  // const setMode = (mode: TimeOfDay) => {
-  //   document.querySelector("body")?.setAttribute("data-theme", mode)
-  // }
-
-  // const setDarkMode = () => {
-  //   document.querySelector("body")?.setAttribute("data-theme", 'dark')
-  // }
-
-  // const setLightMode = () => {
-  //   document.querySelector("body")?.setAttribute("data-theme", 'light')
-  // }
 
   return (
     <>
-      <div data-theme={TOD}>
-        <div className={styles.background}>
-          <Sky sunrise={currentWeather.forecast.forecastday[0].astro.sunrise} sunset={currentWeather.forecast.forecastday[0].astro.sunset} locationTime={location.localtime} />
-        </div>
-        <div className={styles.header}>
-          <div>
-            <div className={styles.location}>{location.name}</div>
-            <div className={styles.date}>{`${date.getMonth() + 1}.${date.getDate()}.${date.getFullYear()}`}</div>
+      <div className={styles.container} data-theme={TOD}>
+        <div className={styles.main}>
+          <div className={styles.background}>
+            <Sky sunrise={currentWeather.forecast.forecastday[0].astro.sunrise} sunset={currentWeather.forecast.forecastday[0].astro.sunset} locationTime={location.localtime} />
+          </div>
+          <div className={styles.header}>
+            <div>
+              <div className={styles.location}>{location.name}</div>
+              <div className={styles.date}>{`${date.getMonth() + 1}.${date.getDate()}.${date.getFullYear()}`}</div>
+            </div>
+
+
+          </div>
+          <WeatherAnimation {...currentWeather.current.condition} />
+          <div className={styles.footer}>
+            <WeatherDisplay {...currentWeather} />
           </div>
           <div className={styles.zipInputHolder}>
-            <TextField InputLabelProps={{ className: styles.mutextfield }} color="primary" error={!validPostcode} helperText={!validPostcode ? "improper zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} /></div>
+
+
+          </div>
 
         </div>
-        <WeatherAnimation {...currentWeather.current.condition} />
-        <div className={styles.footer}>
-          <WeatherDisplay {...currentWeather} />
-        </div>
 
+        <div className={styles.zipSection}>
+          <TextField sx={{ input: { color: 'black' } }} InputLabelProps={{ className: styles.mutextfield }} color="secondary" error={!validPostcode} helperText={!validPostcode ? "improper zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} />
+
+        </div>
       </div>
     </>
   );
