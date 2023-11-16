@@ -1,9 +1,8 @@
 @use "./scss/abstracts/colors" as *;
+@use "./scss/abstracts/fonts" as *;
 
 .location {
-  font-family: Monoton, sans-serif;
-  font-size: 4rem;
-  line-height: 50px;
+  @include location-city;
 }
 
 @media (max-width: 600px) {
@@ -83,6 +82,7 @@
   width: 100%;
   height: calc(100% - 95px);
 }
+/* THEMES */
 
 .day {
   color: $day-font-color;
