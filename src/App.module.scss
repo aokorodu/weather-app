@@ -1,7 +1,14 @@
 .location {
   font-family: Monoton, sans-serif;
-  font-size: 6vw;
+  font-size: 4rem;
   line-height: 50px;
+}
+
+@media (max-width: 600px) {
+  .location {
+    font-size: 8vw;
+    line-height: 6vw;
+  }
 }
 
 .date {
