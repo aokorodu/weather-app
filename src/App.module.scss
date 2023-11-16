@@ -1,7 +1,8 @@
+@use "./scss/abstracts/colors" as *;
+@use "./scss/abstracts/fonts" as *;
+
 .location {
-  font-family: Monoton, sans-serif;
-  font-size: 4rem;
-  line-height: 50px;
+  @include location-city;
 }
 
 @media (max-width: 600px) {
@@ -80,4 +81,21 @@
   position: relative;
   width: 100%;
   height: calc(100% - 95px);
+}
+/* THEMES */
+
+.day {
+  color: $day-font-color;
+}
+
+.night {
+  color: $night-font-color;
+}
+
+.sunrise {
+  color: $sunrise-font-color;
+}
+
+.sunset {
+  color: $sunset-font-color;
 }

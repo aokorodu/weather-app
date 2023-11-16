@@ -1,5 +1,4 @@
 import styles from './App.module.scss';
-import { makeStyles } from '@mui/material/styles';
 import { useState, useEffect } from 'react';
 import WeatherDisplay from './components/weather-display';
 import { TLocation, TWeather } from "./interfaces";
@@ -104,10 +103,33 @@ function App() {
     setTOD(themeString);
   }
 
+  const getTheme = () => {
+    switch (TOD) {
+      case "day":
+        return styles.day;
+        break;
+
+      case "night":
+        return styles.night;
+        break;
+
+      case "sunrise":
+        return styles.sunrise;
+        break;
+
+      case "sunset":
+        return styles.sunset;
+        break;
+
+      default:
+        return styles.day;
+    }
+  }
+
 
   return (
     <>
-      <div className={styles.container} data-theme={TOD}>
+      <div className={`${styles.container} ${getTheme()}`} >
         <div className={styles.main}>
           <div className={styles.background}>
             <Sky sunrise={currentWeather.forecast.forecastday[0].astro.sunrise} sunset={currentWeather.forecast.forecastday[0].astro.sunset} locationTime={location.localtime} />

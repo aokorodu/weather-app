@@ -1,0 +1,7 @@
+$location-font: Monoton, sans-serif;
+
+@mixin location-city {
+  font-family: $location-font;
+  font-size: 4rem;
+  line-height: 50px;
+}
