@@ -13,7 +13,6 @@ import { TimeOfDay } from './interfaces';
 function App() {
   const apiKey = '7b006266b8fa412baec213059230411'
   let date = new Date();
-  console.log(date)
   let currentZip = 10001;
   const [validPostcode, setValidPostcode] = useState(true);
   const [zip, setZip] = useState(currentZip);
@@ -74,9 +73,10 @@ function App() {
       const errorCode = json.error?.code;
       console.log('errorCode:', errorCode)
       if (errorCode !== undefined) return;
+      setTheme();
       setLocation(json.location);
       setCurrentWeather(json);
-      setTheme();
+
     })
   }
 
@@ -84,7 +84,7 @@ function App() {
     console.log('useeffect')
     if (validPostcode) fetchData();
 
-  }, [zip, TOD])
+  }, [location, zip, TOD])
 
   const getAPIURLString = () => {
     return `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${zip}&days=1&aqi=no&alerts=no`
@@ -132,7 +132,7 @@ function App() {
         </div>
 
         <div className={styles.zipSection}>
-          <TextField sx={{ input: { color: 'black' } }} InputLabelProps={{ className: styles.mutextfield }} color="secondary" error={!validPostcode} helperText={!validPostcode ? "improper zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} />
+          <TextField sx={{ input: { color: 'black' } }} InputLabelProps={{ className: styles.mutextfield }} color="primary" error={!validPostcode} helperText={!validPostcode ? "improper zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} />
 
         </div>
       </div>
