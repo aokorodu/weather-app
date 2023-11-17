@@ -32,15 +32,18 @@ export const getTimeOfDay = (
   );
 
   const sunriseDX = CurrentAbsoluteTime - SRAbsoluteTime;
-  const sunsetDX = CurrentAbsoluteTime - SSAbsoluteTime;
+  const sunsetDX = SSAbsoluteTime - CurrentAbsoluteTime;
   const dayLength = SSAbsoluteTime - SRAbsoluteTime;
 
   console.log("sunriseDX: ", sunriseDX);
   console.log("sunsetDX: ", sunsetDX);
   console.log("dayLength: ", dayLength);
 
-  if (Math.abs(sunriseDX) <= 30) return "sunrise";
-  if (Math.abs(sunsetDX) <= 30) return "sunset";
+  // if (Math.abs(sunriseDX) <= 30) return "sunrise";
+  // if (Math.abs(sunsetDX) <= 30) return "sunset";
+
+  if (sunriseDX <= 30 && sunriseDX > 0) return "sunrise";
+  if (sunsetDX <= 30 && sunsetDX > 0) return "sunset";
 
   if (
     CurrentAbsoluteTime < SRAbsoluteTime ||
