@@ -1,4 +1,3 @@
-import { WindGraphic } from "../graphics";
 import { TCurrentWeather } from "../../interfaces";
 import styles from "./Wind.module.scss";
 
