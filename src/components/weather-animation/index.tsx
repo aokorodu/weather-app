@@ -13,6 +13,12 @@ const getAnimation = ((t: string) => {
     if (desc === "overcast") return <OvercastAnimation />;
     if (desc.indexOf("cloudy") > -1) return <CloudyAnimation />
     if (desc.indexOf("rain") > -1) return <RainAnimation />
+
+    // return <CloudyAnimation />
+    // return <SunnyAnimation />
+    // return <ClearAnimation />
+    // return <OvercastAnimation />
+    // return <RainAnimation />
 })
 const WeatherAnimation = ({ code, icon, text }: TCondition) => {
     return (
