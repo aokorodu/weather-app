@@ -12,7 +12,7 @@ import { TimeOfDay } from "./interrfaces"
 function App() {
   const apiKey = '7b006266b8fa412baec213059230411'
   let date = new Date();
-  let currentZip = 10001;
+  let currentZip = "10001";
   const [validPostcode, setValidPostcode] = useState(true);
   const [zip, setZip] = useState(currentZip);
   const [TOD, setTOD] = useState<TimeOfDay>("day")
@@ -166,7 +166,7 @@ function App() {
   }
 
   const checkPostcode = (newCode: string) => {
-    setZip(Number(newCode));
+    setZip(newCode);
     const val = postcodeValidator(newCode, 'US');
     //console.log('valid? ', val);
     setValidPostcode(val);
