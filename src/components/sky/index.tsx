@@ -1,6 +1,6 @@
-import { SkyProps } from "../../interfaces";
+import { SkyProps } from "../../interrfaces"
 import { getTimeOfDay } from "../../utils";
-import { TimeOfDay } from "../../interfaces";
+import { TimeOfDay } from "../../interrfaces"
 
 const Sky = ({ sunrise, sunset, locationTime }: SkyProps) => {
 

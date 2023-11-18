@@ -1,4 +1,4 @@
-import { TimeOfDay } from "../interfaces";
+import { TimeOfDay } from "../interrfaces";
 
 export const getTimeOfDay = (
   currentTimeString: string,

@@ -1,9 +1,9 @@
 import styles from "./Temp.module.scss";
-import { TCurrentWeather } from "../../interfaces";
+import { TWeatherCurrent } from "../../interrfaces";
 type TempProps = {
     max: number,
     min: number,
-    current: TCurrentWeather
+    current: TWeatherCurrent
 }
 const Temp = ({ max, min, current }: TempProps) => {
     return (
