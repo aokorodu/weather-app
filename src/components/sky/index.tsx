@@ -41,20 +41,20 @@ const Sky = ({ sunrise, sunset, locationTime }: SkyProps) => {
 
             <defs>
                 <linearGradient id="dayGradient" x1="250" y1="0" x2="250" y2="500" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#32A9FF" />
-                    <stop offset="1" stop-color="#C0E4FE" />
+                    <stop stopColor="#32A9FF" />
+                    <stop offset="1" stopColor="#C0E4FE" />
                 </linearGradient>
                 <linearGradient id="sunriseGradient" x1="250" y1="0" x2="250" y2="500" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#0071C3" />
-                    <stop offset="1" stop-color="#FFB547" />
+                    <stop stopColor="#0071C3" />
+                    <stop offset="1" stopColor="#FFB547" />
                 </linearGradient>
                 <linearGradient id="sunsetGradient" x1="250" y1="0" x2="250" y2="500" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#004475" />
-                    <stop offset="1" stop-color="#FF7E47" />
+                    <stop stopColor="#004475" />
+                    <stop offset="1" stopColor="#FF7E47" />
                 </linearGradient>
                 <linearGradient id="nightGradient" x1="250" y1="0" x2="250" y2="500" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00080E" />
-                    <stop offset="1" stop-color="#011C30" />
+                    <stop stopColor="#00080E" />
+                    <stop offset="1" stopColor="#011C30" />
                 </linearGradient>
             </defs>
         </svg>

@@ -27,17 +27,9 @@ export const getTimeOfDay = (
   const SSAbsoluteTime = sunsetTime.getTime() / (1000 * 60);
   const CurrentAbsoluteTime = currentTime.getTime() / (1000 * 60);
 
-  console.log(
-    `CurrentAbsoluteTime ${CurrentAbsoluteTime} SRAbsoluteTime: ${SRAbsoluteTime} SSAbsoluteTime: ${SSAbsoluteTime}`
-  );
-
   const sunriseDX = CurrentAbsoluteTime - SRAbsoluteTime;
   const sunsetDX = SSAbsoluteTime - CurrentAbsoluteTime;
   const dayLength = SSAbsoluteTime - SRAbsoluteTime;
-
-  console.log("sunriseDX: ", sunriseDX);
-  console.log("sunsetDX: ", sunsetDX);
-  console.log("dayLength: ", dayLength);
 
   // if (Math.abs(sunriseDX) <= 30) return "sunrise";
   // if (Math.abs(sunsetDX) <= 30) return "sunset";

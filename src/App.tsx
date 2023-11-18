@@ -65,12 +65,13 @@ function App() {
   },)
 
   const fetchData = async () => {
+    console.log('fetch data')
     const result = await fetch(getAPIURLString());
     const data = result.json();
     data.then((json) => {
       console.log('json:', json);
       const errorCode = json.error?.code;
-      console.log('errorCode:', errorCode)
+      //console.log('errorCode:', errorCode)
       if (errorCode !== undefined) return;
       setTheme();
       setLocation(json.location);
@@ -80,10 +81,15 @@ function App() {
   }
 
   useEffect(() => {
+    console.log('useEffect setTheme')
+    setTheme();
+  }, [TOD, location])
+
+  useEffect(() => {
     console.log('useeffect')
     if (validPostcode) fetchData();
 
-  }, [location, zip, TOD])
+  }, [validPostcode])
 
   const getAPIURLString = () => {
     return `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${zip}&days=1&aqi=no&alerts=no`
@@ -92,14 +98,14 @@ function App() {
   const checkPostcode = (newCode: string) => {
     setZip(Number(newCode));
     const val = postcodeValidator(newCode, 'US');
-    console.log('valid? ', val);
+    //console.log('valid? ', val);
     setValidPostcode(val);
   }
 
   // put this in the fetch call after the setlocation and setcurrentweather
   const setTheme = () => {
     const themeString: TimeOfDay = getTimeOfDay(location.localtime, currentWeather.forecast.forecastday[0].astro.sunrise, currentWeather.forecast.forecastday[0].astro.sunset);
-    console.log('themSring: ', themeString);
+    console.log('setting theme: ', themeString);
     setTOD(themeString);
   }
 
@@ -129,7 +135,7 @@ function App() {
 
   return (
     <>
-      <div className={`${styles.container} ${getTheme()}`} >
+      <div className={`${styles.container} ${styles[TOD]}`} >
         <div className={styles.main}>
           <div className={styles.background}>
             <Sky sunrise={currentWeather.forecast.forecastday[0].astro.sunrise} sunset={currentWeather.forecast.forecastday[0].astro.sunset} locationTime={location.localtime} />
