@@ -160,7 +160,7 @@ function App() {
   }, [validPostcode])
 
   const getAPIURLString = () => {
-    return `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${zip}&days=1&aqi=no&alerts=no`
+    return `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${zip}&days=1&aqi=no&alerts=no`
   }
 
   const checkPostcode = (newCode: string) => {
