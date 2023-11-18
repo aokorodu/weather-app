@@ -1,7 +1,7 @@
-import { TCurrentWeather } from "../../interfaces";
+import { TWeatherCurrent } from "../../interrfaces";
 import styles from "./Wind.module.scss";
 
-const Wind = ({ cloud, wind_mph, wind_dir, wind_degree }: TCurrentWeather) => {
+const Wind = ({ cloud, wind_mph, wind_dir, wind_degree }: TWeatherCurrent) => {
     return (
         <>
             <div className={styles.container}>

@@ -1,4 +1,4 @@
-import { TCondition } from "../../interfaces";
+import { TWeatherCondition } from "../../interrfaces";
 import styles from "./WeatherAnimation.module.scss";
 import SunnyAnimation from "./sunny";
 import CloudyAnimation from "./cloudy";
@@ -20,7 +20,7 @@ const getAnimation = ((t: string) => {
     // return <OvercastAnimation />
     // return <RainAnimation />
 })
-const WeatherAnimation = ({ code, icon, text }: TCondition) => {
+const WeatherAnimation = ({ code, icon, text }: TWeatherCondition) => {
     return (
         <>
             <div className={styles.container}>
