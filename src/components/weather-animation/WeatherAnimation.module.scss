@@ -3,7 +3,7 @@
   top: 0px;
   z-index: -1;
   width: 100vw;
-  height: var(--content_height);
+  height: calc(100% - 95px);
   display: flex;
   flex-direction: column;
   justify-content: center;
