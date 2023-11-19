@@ -3,7 +3,6 @@ import styles from './CloudyAnimation.module.scss';
 const CloudyAnimation = () => {
     return (
         <>
-            <circle cx="250" cy="250" r="75" fill="url(#radial_gradient)" stroke="white" strokeWidth="5" strokeOpacity={.2} />
             <g className={styles.cloud_1}>
                 <use href="#cloud" x="100" y="100"></use>
             </g>
@@ -16,16 +15,6 @@ const CloudyAnimation = () => {
             <g className={styles.cloud_4}>
                 <use href="#cloud" x="100" y="150"></use>
             </g>
-            {/* <g filter="url(#filter1_f_355_78)">
-                <ellipse cx="374.5" cy="274" rx="39.5" ry="35" fill="white" />
-                <ellipse cx="405" cy="294.5" rx="40" ry="35.5" fill="white" />
-                <ellipse cx="345.5" cy="294.5" rx="39.5" ry="35.5" fill="white" />
-                <ellipse cx="305.5" cy="329" rx="39.5" ry="35" fill="white" />
-                <ellipse cx="365.5" cy="329" rx="39.5" ry="35" fill="white" />
-                <ellipse cx="405" cy="329" rx="40" ry="35" fill="white" />
-                <ellipse cx="444.5" cy="317.5" rx="39.5" ry="35.5" fill="white" />
-                <ellipse cx="431.5" cy="274" rx="39.5" ry="35" fill="white" />
-            </g> */}
             <defs>
                 <g id="cloud" >
                     <path fillRule="evenodd" clipRule="evenodd" d="M184.788 47.6002C186.898 43.3382 188.074 38.5965 188.074 33.6C188.074 15.0432 171.849 0 151.835 0C141.56 0 132.283 3.96534 125.688 10.3356C119.093 3.96534 109.817 0 99.5413 0C84.8606 0 72.2188 8.09411 66.5238 19.7318C49.7294 22.5518 36.9423 36.2519 36.7007 52.8027C36.5469 52.8009 36.3928 52.8 36.2385 52.8C16.2245 52.8 0 67.8432 0 86.4C0 104.957 16.2245 120 36.2385 120C47.2505 120 57.1152 115.446 63.7615 108.258C70.4078 115.446 80.2725 120 91.2844 120C97.8382 120 103.986 118.387 109.29 115.566C114.662 118.387 120.887 120 127.523 120C138.56 120 148.458 115.54 155.185 108.48C157.935 109.107 160.806 109.44 163.761 109.44C183.775 109.44 200 94.1819 200 75.36C200 63.9106 193.996 53.7799 184.788 47.6002Z" fill="white" fillOpacity={.85} />
@@ -40,10 +29,7 @@ const CloudyAnimation = () => {
                     <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
                     <feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_355_78" />
                 </filter>
-                <radialGradient id="radial_gradient">
-                    <stop offset="0%" stopColor="#FFDC5F" />
-                    <stop offset="100%" stopColor="#FFA620" />
-                </radialGradient>
+
             </defs>
         </>
 

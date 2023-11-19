@@ -34,15 +34,15 @@ export const getTimeOfDay = (
   // if (Math.abs(sunriseDX) <= 30) return "sunrise";
   // if (Math.abs(sunsetDX) <= 30) return "sunset";
 
-  if (sunriseDX <= 30 && sunriseDX > 0) return "sunrise";
-  if (sunsetDX <= 30 && sunsetDX > 0) return "sunset";
+  if (sunriseDX <= 30 && sunriseDX > 0) return { description: "sunrise" };
+  if (sunsetDX <= 30 && sunsetDX > 0) return { description: "sunset" };
 
   if (
     CurrentAbsoluteTime < SRAbsoluteTime ||
     CurrentAbsoluteTime > SSAbsoluteTime
   ) {
-    return "night";
+    return { description: "night" };
   }
 
-  return "day";
+  return { description: "day" };
 };

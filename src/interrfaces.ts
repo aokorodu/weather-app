@@ -114,10 +114,12 @@ export type TWeatherLocation = {
   tz_id: string;
 };
 
-export type TimeOfDay = "sunrise" | "day" | "sunset" | "night";
-
 export type SkyProps = {
   sunrise: string;
   sunset: string;
   locationTime: string;
+};
+
+export type TimeOfDay = {
+  description: "sunrise" | "day" | "sunset" | "night";
 };

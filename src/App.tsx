@@ -15,7 +15,7 @@ function App() {
   let currentZip = "10001";
   const [validPostcode, setValidPostcode] = useState(true);
   const [zip, setZip] = useState(currentZip);
-  const [TOD, setTOD] = useState<TimeOfDay>("day")
+  const [TOD, setTOD] = useState<TimeOfDay>({ description: "night" })
   const [location, setLocation] = useState<TWeatherLocation>({
     country: "",
     lat: 0,
@@ -179,36 +179,15 @@ function App() {
     setTOD(themeString);
   }
 
-  const getTheme = () => {
-    switch (TOD) {
-      case "day":
-        return styles.day;
-        break;
 
-      case "night":
-        return styles.night;
-        break;
-
-      case "sunrise":
-        return styles.sunrise;
-        break;
-
-      case "sunset":
-        return styles.sunset;
-        break;
-
-      default:
-        return styles.day;
-    }
-  }
 
 
   return (
     <>
-      <div className={`${styles.container} ${styles[TOD]}`} >
+      <div className={`${styles.container} ${styles[TOD.description]}`} >
         <div className={styles.main}>
           <div className={styles.background}>
-            <Sky sunrise={currentWeather.forecast.forecastday[0].astro.sunrise} sunset={currentWeather.forecast.forecastday[0].astro.sunset} locationTime={location.localtime} />
+            <Sky {...TOD} />
           </div>
           <div className={styles.header}>
             <div>
