@@ -41,7 +41,12 @@ const Sky = ({ sunrise, sunset, locationTime }: SkyProps) => {
     return (
         <svg width="100%" height="100%" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid slice">
             <rect width="500" height="500" fill={getFill()} />
-            {todString === "day" && <circle cx="250" cy="250" r="75" fill="url(#radial_gradient)" stroke="white" strokeWidth="5" strokeOpacity={.2} />
+            {todString === "day" &&
+                <>
+                    <circle cx="250" cy="225" r="75" fill="none" stroke="white" strokeWidth="15" strokeOpacity={.1} />
+                    <circle cx="250" cy="225" r="75" fill="url(#radial_gradient)" />
+                </>
+
             }
             {(todString !== "day") && (todString !== "sunrise") && <g fill="white">
                 <circle cx="119.5" cy="201.5" r="1.5" />
