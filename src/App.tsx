@@ -30,11 +30,7 @@ function App() {
 
   const fetchDataFromGeo = () => {
     navigator.geolocation.getCurrentPosition((p: GeolocationPosition) => {
-      const lat = p.coords.latitude;
-      const long = p.coords.longitude
-      const str = `${lat},${long}`;
-
-      getData(str);
+      getData(`${p.coords.latitude},${p.coords.longitude}`);
 
     });
   }
@@ -56,20 +52,7 @@ function App() {
   const fetchData = async () => {
 
     console.log('fetch data')
-    const result = await fetch(getAPIURLString(zip));
-    const data = result.json();
-    data.then((json) => {
-      console.log('json:', json);
-      const errorCode = json.error?.code;
-      //console.log('errorCode:', errorCode)
-      if (errorCode !== undefined) return;
-      setTheme();
-      setLocation(json.location);
-      setCurrentWeather(json);
-
-    })
-
-
+    getData(zip);
   }
 
   useEffect(() => {
