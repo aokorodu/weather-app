@@ -8,11 +8,12 @@ import WeatherAnimation from './components/weather-animation';
 import Sky from './components/sky';
 import { BlankWeatherObject, getTimeOfDay } from './utils';
 import { TimeOfDay } from "./interrfaces";
+import LoadingIndicator from './components/loading';
 
 function App() {
   const apiKey = '7b006266b8fa412baec213059230411'
   let date = new Date();
-  let currentZip = "10001";
+  let currentZip = "";
   const [validPostcode, setValidPostcode] = useState(false);
   const [zip, setZip] = useState(currentZip);
   const [TOD, setTOD] = useState<TimeOfDay>("day")
@@ -124,6 +125,7 @@ function App() {
         <div className={styles.main}>
           <div className={styles.background}>
             <Sky sunrise={currentWeather.forecast.forecastday[0].astro.sunrise} sunset={currentWeather.forecast.forecastday[0].astro.sunset} locationTime={location.localtime} />
+
           </div>
           <div className={styles.header}>
             <div>
@@ -134,6 +136,7 @@ function App() {
 
           </div>
           <WeatherAnimation {...currentWeather.current.condition} />
+          {location.name === "" && <LoadingIndicator />}
           <div className={styles.footer}>
             <WeatherDisplay {...currentWeather} />
           </div>
@@ -145,7 +148,7 @@ function App() {
         </div>
 
         <div className={styles.zipSection}>
-          <TextField sx={{ input: { color: 'black' } }} InputLabelProps={{ className: styles.mutextfield }} color="primary" error={!validPostcode} helperText={!validPostcode ? "improper zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} />
+          <TextField sx={{ input: { color: 'black' } }} InputLabelProps={{ className: styles.mutextfield }} color="primary" error={!validPostcode} helperText={!validPostcode ? "enter zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} />
 
         </div>
       </div>
