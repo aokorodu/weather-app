@@ -1,0 +1,16 @@
+.container {
+  position: fixed;
+  top: 0px;
+  z-index: -1;
+  width: 100vw;
+  height: calc(100% - 95px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+text {
+  font-family: "Bungee", serif;
+  font-size: 50px;
+}

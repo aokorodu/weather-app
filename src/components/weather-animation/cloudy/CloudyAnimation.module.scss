@@ -1,7 +1,6 @@
 $drift-duration: 80s;
 $drift-duration_2: 90s;
 .cloud_1 {
-  filter: blur(5px);
   animation-name: drift;
   animation-duration: $drift-duration;
   animation-iteration-count: infinite;
@@ -10,7 +9,6 @@ $drift-duration_2: 90s;
 }
 
 .cloud_2 {
-  filter: blur(5px);
   animation-name: drift;
   animation-duration: $drift-duration_2;
   animation-iteration-count: infinite;
@@ -19,7 +17,6 @@ $drift-duration_2: 90s;
 }
 
 .cloud_3 {
-  filter: blur(5px);
   animation-name: drift;
   animation-duration: $drift-duration;
   animation-iteration-count: infinite;
@@ -28,7 +25,6 @@ $drift-duration_2: 90s;
 }
 
 .cloud_4 {
-  filter: blur(5px);
   animation-name: drift;
   animation-duration: $drift-duration_2;
   animation-iteration-count: infinite;
