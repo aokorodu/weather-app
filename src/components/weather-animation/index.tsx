@@ -17,10 +17,10 @@ const getAnimation = ((t: string) => {
     // return <CloudyAnimation />
     // return <SunnyAnimation />
     // return <ClearAnimation />
-    // return <OvercastAnimation />
-    // return <RainAnimation />
+    //return <OvercastAnimation />
+    //return <RainAnimation />
 })
-const WeatherAnimation = ({ code, icon, text }: TWeatherCondition) => {
+const WeatherAnimation = ({ text }: TWeatherCondition) => {
     return (
         <>
             <div className={styles.container}>
