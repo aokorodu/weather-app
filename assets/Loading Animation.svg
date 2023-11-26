@@ -1,0 +1,25 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="500" height="500" fill="#1E1E1E"/>
+<g id="Loading Animation" clip-path="url(#clip0_0_1)">
+<rect width="500" height="500" fill="#46C2F7"/>
+<rect id="day" width="500" height="500" fill="url(#paint0_linear_0_1)"/>
+<circle id="Ellipse 50" cx="250.5" cy="250" r="45" stroke="white" stroke-width="10"/>
+<path id="8" d="M198.382 198.381L212.602 202.192L202.192 212.602L198.382 198.381Z" fill="white"/>
+<path id="7" d="M177 250L189.75 257.361L189.75 242.639L177 250Z" fill="white"/>
+<path id="6" d="M198.382 301.619L212.602 297.808L202.192 287.398L198.382 301.619Z" fill="white"/>
+<path id="5" d="M250 323L257.361 310.25H242.639L250 323Z" fill="white"/>
+<path id="4" d="M301.619 301.619L297.808 287.398L287.398 297.809L301.619 301.619Z" fill="white"/>
+<path id="3" d="M323 250L310.25 257.361L310.25 242.639L323 250Z" fill="white"/>
+<path id="2" d="M301.619 198.381L297.808 212.602L287.398 202.191L301.619 198.381Z" fill="white"/>
+<path id="1" d="M250 177L257.361 189.75H242.639L250 177Z" fill="white"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_1" x1="250" y1="0" x2="250" y2="500" gradientUnits="userSpaceOnUse">
+<stop stop-color="#626363"/>
+<stop offset="1" stop-color="#E3E3E3"/>
+</linearGradient>
+<clipPath id="clip0_0_1">
+<rect width="500" height="500" fill="white"/>
+</clipPath>
+</defs>
+</svg>

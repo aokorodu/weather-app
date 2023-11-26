@@ -137,6 +137,7 @@ function App() {
           </div>
           <WeatherAnimation {...currentWeather.current.condition} />
           {location.name === "" && <LoadingIndicator />}
+          {/* <LoadingIndicator /> */}
           <div className={styles.footer}>
             <WeatherDisplay {...currentWeather} />
           </div>

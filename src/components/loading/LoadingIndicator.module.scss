@@ -10,7 +10,60 @@
   align-items: center;
 }
 
+$duration: 800ms;
+$delay: calc($duration/4);
+
+@mixin fadeDescription {
+  animation-name: fader;
+  animation-duration: $duration;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
 text {
   font-family: "Bungee", serif;
-  font-size: 50px;
+  font-size: 10px;
+}
+
+.tri1 {
+  @include fadeDescription();
+  animation-delay: $delay;
+}
+.tri2 {
+  @include fadeDescription();
+  animation-delay: calc(2 * $delay);
+}
+.tri3 {
+  @include fadeDescription();
+  animation-delay: calc(3 * $delay);
+}
+.tri4 {
+  @include fadeDescription();
+  animation-delay: calc(4 * $delay);
+}
+.tri5 {
+  @include fadeDescription();
+  animation-delay: calc(5 * $delay);
+}
+.tri6 {
+  @include fadeDescription();
+  animation-delay: calc(6 * $delay);
+}
+.tri7 {
+  @include fadeDescription();
+  animation-delay: calc(7 * $delay);
+}
+.tri8 {
+  @include fadeDescription();
+  animation-delay: calc(8 * $delay);
+}
+
+@keyframes fader {
+  from {
+    opacity: 0.1;
+  }
+
+  to {
+    opacity: 0.9;
+  }
 }
