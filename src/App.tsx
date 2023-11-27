@@ -138,9 +138,9 @@ function App() {
           <WeatherAnimation {...currentWeather.current.condition} />
           {location.name === "" && <LoadingIndicator />}
           {/* <LoadingIndicator /> */}
-          <div className={styles.footer}>
+          {location.name !== "" && <div className={styles.footer}>
             <WeatherDisplay {...currentWeather} />
-          </div>
+          </div>}
           <div className={styles.zipInputHolder}>
 
 
