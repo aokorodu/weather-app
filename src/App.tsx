@@ -82,40 +82,15 @@ function App() {
   }
 
   const checkPostcode = (newCode: string) => {
-    setZip(newCode);
     const val = postcodeValidator(newCode, 'US');
-    //console.log('valid? ', val);
-    setValidPostcode(val);
+    if (val === true) setZip(newCode);
+    if (val !== validPostcode) setValidPostcode(val);
   }
 
-  // put this in the fetch call after the setlocation and setcurrentweather
   const setTheme = () => {
     const themeString: TimeOfDay = getTimeOfDay(location.localtime, currentWeather.forecast.forecastday[0].astro.sunrise, currentWeather.forecast.forecastday[0].astro.sunset);
     console.log('setting theme: ', themeString);
     setTOD(themeString);
-  }
-
-  const getTheme = () => {
-    switch (TOD) {
-      case "day":
-        return styles.day;
-        break;
-
-      case "night":
-        return styles.night;
-        break;
-
-      case "sunrise":
-        return styles.sunrise;
-        break;
-
-      case "sunset":
-        return styles.sunset;
-        break;
-
-      default:
-        return styles.day;
-    }
   }
 
 
@@ -135,9 +110,8 @@ function App() {
 
 
           </div>
-          <WeatherAnimation {...currentWeather.current.condition} />
+          {validPostcode && <WeatherAnimation {...currentWeather.current.condition} />}
           {location.name === "" && <LoadingIndicator />}
-          {/* <LoadingIndicator /> */}
           {location.name !== "" && <div className={styles.footer}>
             <WeatherDisplay {...currentWeather} />
           </div>}

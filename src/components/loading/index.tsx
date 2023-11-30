@@ -4,10 +4,9 @@ const LoadingIndicator = () => {
     return (
         <div className={styles.container}>
             <svg width="100%" height="100%" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid slice">
-                <rect id="day" width="500" height="500" fill="url(#paint0_linear_0_1)" />
+                <rect id="day" width="500" height="500" fill="url(#sky_radial)" />
 
                 <g id="Loading Animation" transform="translate(0, -25)">
-                    <text x="250" y="250" fill={"white"} opacity={.75} textAnchor={"middle"} dominantBaseline={"middle"}>LOADING...</text>
                     <circle id="Ellipse 50" cx="250.5" cy="250" r="45" fill="white" fillOpacity={.5} />
                     <path className={styles.tri1} id="tri8" d="M198.382 198.381L212.602 202.192L202.192 212.602L198.382 198.381Z" fill="white" />
                     <path className={styles.tri2} id="tri7" d="M177 250L189.75 257.361L189.75 242.639L177 250Z" fill="white" />
@@ -19,10 +18,10 @@ const LoadingIndicator = () => {
                     <path className={styles.tri8} id="tri1" d="M250 177L257.361 189.75H242.639L250 177Z" fill="white" />
                 </g>
                 <defs>
-                    <linearGradient id="paint0_linear_0_1" x1="250" y1="0" x2="250" y2="500" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#626363" />
-                        <stop offset="1" stop-color="#E3E3E3" />
-                    </linearGradient>
+                    <radialGradient id="sky_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(250 250) rotate(90) scale(297.5)">
+                        <stop stopColor="#84D3FF" />
+                        <stop offset="1" stopColor="#008EDE" />
+                    </radialGradient>
                     <clipPath id="clip0_0_1">
                         <rect width="500" height="500" fill="white" />
                     </clipPath>
