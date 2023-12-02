@@ -8,17 +8,17 @@ import RainAnimation from "./rain";
 
 const getAnimation = ((t: string) => {
     const desc: string = t.toLowerCase()
-    if (desc === "sunny") return <SunnyAnimation />;
-    if (desc === "clear") return <ClearAnimation />;
-    if (desc === "overcast") return <OvercastAnimation />;
-    if (desc.indexOf("cloudy") > -1) return <CloudyAnimation />
-    if (desc.indexOf("rain") > -1) return <RainAnimation />
-    if (desc.indexOf("drizzle") > -1) return <RainAnimation />
+    // if (desc === "sunny") return <SunnyAnimation />;
+    // if (desc === "clear") return <ClearAnimation />;
+    // if (desc === "overcast") return <OvercastAnimation />;
+    // if (desc.indexOf("cloudy") > -1) return <CloudyAnimation />
+    // if (desc.indexOf("rain") > -1) return <RainAnimation />
+    // if (desc.indexOf("drizzle") > -1) return <RainAnimation />
     // return <CloudyAnimation />
     // return <SunnyAnimation />
     // return <ClearAnimation />
     //return <OvercastAnimation />
-    //return <RainAnimation />
+    return <RainAnimation />
 })
 const WeatherAnimation = ({ text }: TWeatherCondition) => {
     return (
