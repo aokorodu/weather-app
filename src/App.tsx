@@ -128,7 +128,7 @@ function App() {
         </div>
 
         <div className={styles.zipSection}>
-          <TextField sx={{ input: { color: 'black' } }} InputLabelProps={{ className: styles.mutextfield }} color="primary" error={!validPostcode} helperText={!validPostcode ? "enter zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} />{toggle && <div>can't find location</div>}
+          <TextField sx={{ input: { color: 'black' } }} InputLabelProps={{ className: styles.mutextfield }} color="primary" error={!validPostcode || toggle} helperText={!validPostcode ? "enter zipcode" : toggle ? "no such place" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} />
 
         </div>
       </div>
