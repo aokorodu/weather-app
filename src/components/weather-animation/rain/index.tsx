@@ -13,10 +13,8 @@ const RainAnimation = () => {
     };
 
     useEffect(() => {
-        console.log('useeffect rain')
         animateDrops();
         return () => {
-            ('dismount rain')
             stopAnimatingDrops();
         }
     }, [])
