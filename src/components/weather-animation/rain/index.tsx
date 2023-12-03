@@ -45,8 +45,8 @@ const RainAnimation = () => {
             const y1 = 0;
             const y2 = 500;
             const color = "#FFFFFF"
-            const dropLength = 1 + Math.round(Math.random() * 3);
-            arr.push(<line key={`${x1}_${dropLength}`} ref={addToRefs} x1={x1} y1={y1} x2={x2} y2={y2} stroke={color} strokeOpacity={.2} strokeWidth={.5} strokeDasharray={`${dropLength} ${(100 - dropLength)}`} pathLength={100} strokeDashoffset={Math.random() * 100} />)
+            const dropLength = 1 + Math.round(Math.random() * 5);
+            arr.push(<line key={`${x1}_${dropLength}`} ref={addToRefs} x1={x1} y1={y1} x2={x2} y2={y2} stroke={color} strokeOpacity={.6} strokeWidth={.5} strokeDasharray={`${dropLength} ${(100 - dropLength)}`} pathLength={100} strokeDashoffset={Math.random() * 100} />)
         }
         return arr;
     }
@@ -55,7 +55,7 @@ const RainAnimation = () => {
         cancelAnimationFrame(animationID);
     }
     return (
-        <svg width="500" height="500" fill="none">
+        <>
             <rect x="0" y="0" width="500" height="500" fill="url(#darkSky)" />
             <g>
                 {getRainDrops()}
@@ -66,18 +66,18 @@ const RainAnimation = () => {
                     <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
                 </filter>
                 <linearGradient id="cloud-gradient" x1="432" x2="432.6" y1="54" y2="-60.5" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#222222" />
-                    <stop offset="1" stopColor="#fff" />
+                    <stop stopColor="#fff" />
+                    <stop offset="1" stopColor="#222222" />
                 </linearGradient>
                 <linearGradient id="darkSky" x1="0" x2="0" y1="0" y2="500" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#000000" stopOpacity={.5} />
-                    <stop offset="1" stopColor="#000000" stopOpacity={0} />
+                    <stop stopColor="#6C6B6B" />
+                    <stop offset="1" stopColor="#ffffff" />
                 </linearGradient>
                 <clipPath id="a">
                     <path fill="#fff" d="M0 0h500v500H0z" />
                 </clipPath>
             </defs>
-        </svg>
+        </>
     )
 }
 
