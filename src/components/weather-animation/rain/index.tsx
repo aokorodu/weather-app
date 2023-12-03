@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 const RainAnimation = () => {
 
-    const dropSpeed = 3;
+    const dropSpeed = 4;
     const numberOfDrops = 50;
     const dx = 150;
     const rainRefs = useRef<SVGLineElement[]>([]);
@@ -23,8 +23,9 @@ const RainAnimation = () => {
     const animateDrops = () => {
         rainRefs.current.map((drop) => {
             let offset = Number(drop.getAttribute("stroke-dashoffset"));
+            let speed = Number(drop.getAttribute("data-speed"));
             // console.log('offset: ', offset);
-            offset -= dropSpeed;
+            offset -= speed;
             if (offset < -100) {
                 offset = 0;
                 const xpos = Math.round(Math.random() * 600);
@@ -44,9 +45,12 @@ const RainAnimation = () => {
             const x2 = x1 - dx;
             const y1 = 0;
             const y2 = 500;
-            const color = "#FFFFFF"
-            const dropLength = 1 + Math.round(Math.random() * 5);
-            arr.push(<line key={`${x1}_${dropLength}`} ref={addToRefs} x1={x1} y1={y1} x2={x2} y2={y2} stroke={color} strokeOpacity={.6} strokeWidth={.5} strokeDasharray={`${dropLength} ${(100 - dropLength)}`} pathLength={100} strokeDashoffset={Math.random() * 100} />)
+            const color = "#FFFFFF";
+            const maxLength = 7;
+            const dropLength = 1 + Math.round(Math.random() * (maxLength - 1));
+
+            const speed = dropLength / maxLength * dropSpeed;
+            arr.push(<line data-dropLength={dropLength} data-speed={speed} key={`${x1}_${dropLength}`} ref={addToRefs} x1={x1} y1={y1} x2={x2} y2={y2} stroke={color} strokeOpacity={.6} strokeWidth={.5} strokeDasharray={`${dropLength} ${(100 - dropLength)}`} pathLength={100} strokeDashoffset={Math.random() * 100} />)
         }
         return arr;
     }
