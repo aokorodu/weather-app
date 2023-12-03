@@ -14,6 +14,7 @@ function App() {
   const apiKey = '7b006266b8fa412baec213059230411'
   let date = new Date();
   let currentZip = "";
+  const [toggle, setToggle] = useState(false);
   const [validPostcode, setValidPostcode] = useState(false);
   const [zip, setZip] = useState(currentZip);
   const [TOD, setTOD] = useState<TimeOfDay>("day")
@@ -42,7 +43,11 @@ function App() {
     data.then((json) => {
       console.log('json:', json);
       const errorCode = json.error?.code;
-      if (errorCode !== undefined) return;
+      if (errorCode !== undefined) {
+        setToggle(true);
+        return;
+      }
+      setToggle(false);
       setTheme();
       setLocation(json.location);
       setCurrentWeather(json);
@@ -123,7 +128,7 @@ function App() {
         </div>
 
         <div className={styles.zipSection}>
-          <TextField sx={{ input: { color: 'black' } }} InputLabelProps={{ className: styles.mutextfield }} color="primary" error={!validPostcode} helperText={!validPostcode ? "enter zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} />
+          <TextField sx={{ input: { color: 'black' } }} InputLabelProps={{ className: styles.mutextfield }} color="primary" error={!validPostcode} helperText={!validPostcode ? "enter zipcode" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} />{toggle && <div>can't find location</div>}
 
         </div>
       </div>
