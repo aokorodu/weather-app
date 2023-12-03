@@ -14,7 +14,7 @@ function App() {
   const apiKey = '7b006266b8fa412baec213059230411'
   let date = new Date();
   let currentZip = "";
-  const [toggle, setToggle] = useState(false);
+  const [zipError, setZipError] = useState(false);
   const [validPostcode, setValidPostcode] = useState(false);
   const [zip, setZip] = useState(currentZip);
   const [TOD, setTOD] = useState<TimeOfDay>("day")
@@ -44,10 +44,10 @@ function App() {
       console.log('json:', json);
       const errorCode = json.error?.code;
       if (errorCode !== undefined) {
-        setToggle(true);
+        setZipError(true);
         return;
       }
-      setToggle(false);
+      setZipError(false);
       setTheme();
       setLocation(json.location);
       setCurrentWeather(json);
@@ -128,7 +128,7 @@ function App() {
         </div>
 
         <div className={styles.zipSection}>
-          <TextField sx={{ input: { color: 'black' } }} InputLabelProps={{ className: styles.mutextfield }} color="primary" error={!validPostcode || toggle} helperText={!validPostcode ? "enter zipcode" : toggle ? "no such place" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} />
+          <TextField sx={{ input: { color: 'black' } }} InputLabelProps={{ className: styles.mutextfield }} color="primary" error={!validPostcode || zipError} helperText={!validPostcode ? "enter zipcode" : zipError ? "no such place" : ""} defaultValue={zip} id="zip" label="zip code" variant="outlined" onChange={(e) => { checkPostcode(e.target.value) }} />
 
         </div>
       </div>
