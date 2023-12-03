@@ -110,7 +110,7 @@ function App() {
 
 
           </div>
-          {validPostcode && <WeatherAnimation {...currentWeather.current.condition} />}
+          <WeatherAnimation {...currentWeather.current.condition} />
           {location.name === "" && <LoadingIndicator />}
           {location.name !== "" && <div className={styles.footer}>
             <WeatherDisplay {...currentWeather} />

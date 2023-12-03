@@ -18,7 +18,7 @@ const getAnimation = ((t: string) => {
     // return <SunnyAnimation />
     // return <ClearAnimation />
     //return <OvercastAnimation />
-    //return <RainAnimation />
+    // return <RainAnimation />
 })
 const WeatherAnimation = ({ text }: TWeatherCondition) => {
     return (
