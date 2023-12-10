@@ -11,20 +11,20 @@ const OvercastAnimation = () => {
                 <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
             </filter>
             <linearGradient id="paint0_linear_410_28" x1="412.168" y1="120.022" x2="412.602" y2="25.7606" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#AFACAC" />
-                <stop offset="1" stop-color="white" />
+                <stop stopColor="#AFACAC" />
+                <stop offset="1" stopColor="white" />
             </linearGradient>
             <linearGradient id="paint1_linear_410_28" x1="30.6891" y1="93" x2="30.1619" y2="-21.4997" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#AFACAC" />
-                <stop offset="1" stop-color="white" />
+                <stop stopColor="#AFACAC" />
+                <stop offset="1" stopColor="white" />
             </linearGradient>
             <linearGradient id="paint2_linear_410_28" x1="479.248" y1="56.0003" x2="479.969" y2="-84.922" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#AFACAC" />
-                <stop offset="1" stop-color="white" />
+                <stop stopColor="#AFACAC" />
+                <stop offset="1" stopColor="white" />
             </linearGradient>
             <linearGradient id="sky-gradient" x1="250" y1="0" x2="250" y2="500" gradientUnits="userSpaceOnUse">
-                <stop stop-opacity="0.5" />
-                <stop offset="1" stop-opacity="0.23" />
+                <stop stopOpacity="0.5" />
+                <stop offset="1" stopOpacity="0.23" />
             </linearGradient>
             <clipPath id="clip0_410_28">
                 <rect width="500" height="500" fill="white" />

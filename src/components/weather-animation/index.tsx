@@ -17,11 +17,11 @@ const getAnimation = ((t: string) => {
     if (desc.indexOf("drizzle") > -1) return <RainAnimation />
     if (desc.indexOf("fog") > -1) return <FogAnimation />
     if (desc.indexOf("mist") > -1) return <FogAnimation />
-    // return <CloudyAnimation />
+    //return <CloudyAnimation />
     // return <SunnyAnimation />
     // return <ClearAnimation />
     //return <OvercastAnimation />
-    // return <RainAnimation />
+    //return <RainAnimation />
     //return <FogAnimation />
 })
 const WeatherAnimation = ({ text }: TWeatherCondition) => {
