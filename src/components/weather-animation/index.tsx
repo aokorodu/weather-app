@@ -6,7 +6,8 @@ import OvercastAnimation from "./overcast";
 import ClearAnimation from "./clear";
 import FogAnimation from "./fog";
 import RainAnimation from "./rain";
-import SnowAnimation from "./snow"
+import SnowAnimation from "./snow";
+import HailAnimation from "./hail"
 
 const getAnimation = ((t: string) => {
     const desc: string = t.toLowerCase()
@@ -19,6 +20,7 @@ const getAnimation = ((t: string) => {
     if (desc.indexOf("fog") > -1) return <FogAnimation />
     if (desc.indexOf("mist") > -1) return <FogAnimation />
     if (desc.indexOf("snow") > -1) return <SnowAnimation />
+    if (desc.indexOf("hail") > -1) return <HailAnimation />
     //return <CloudyAnimation />
     // return <SunnyAnimation />
     // return <ClearAnimation />
@@ -26,6 +28,8 @@ const getAnimation = ((t: string) => {
     //return <RainAnimation />
     //return <FogAnimation />
     //return <SnowAnimation />
+    //return <HailAnimation />
+
 })
 const WeatherAnimation = ({ text }: TWeatherCondition) => {
     return (
